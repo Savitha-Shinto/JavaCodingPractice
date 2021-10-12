@@ -1,0 +1,18 @@
+public class MissingNumberUsingXOR {
+    public static void main(String args[]){
+        MissingNumberUsingXOR missingNumberUsingXOR = new MissingNumberUsingXOR();
+
+        System.out.println( missingNumberUsingXOR.getMissingNumber ( new int[]{1,2,4,5,6}, 5));
+    }
+    int getMissingNumber(int[] arr, int len){
+        int a = arr[0];
+        int b =1;
+        for(int i=1; i<len; i++){
+            a = a ^ arr[i]; //arr[0]^arr[1]^arr[2]^arr[3]^arr[4]
+        }
+        for(int i =2; i<=len+1; i++){
+            b = b ^ i;//1^2^3^4^5^6
+        }
+        return a ^ b;
+    }
+}
